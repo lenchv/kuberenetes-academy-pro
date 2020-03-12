@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-app-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: frontend
+  template:
+    metadata:
+      labels:
+        k8s-app: frontend
+    spec:
+      containers:
+      - name: k8s-app-frontend
+        image: lenchv/k8s-frontend:0.0.3
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-app-frontend
+spec:
+  selector:
+    k8s-app: frontend
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 80

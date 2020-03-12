@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kubernetes App</title>
+	<style>
+		#error {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Kubernetes App</h1>
+	<div id="error"></div>
+	<pre id="payload"></pre>
+	<button id="button">SMASH!!1!</button>
+	<script>
+		const error = document.getElementById("error");
+		const payload = document.getElementById("payload");
+		const button = document.getElementById("button");
+
+		button.addEventListener("click", () => {
+			fetch('http://192.168.39.55/api/v1/memes').then(response => {
+				if (!response.ok) {
+					throw new Error(`GET /api/v1/memes\n` + 
+						`Status: ${response.status}\n` + 
+						`Status text: ${response.statusText}`); 
+				}
+
+				return response.json();
+			}).then(data => {
+				payload.innerText = JSON.stringify(data, null, 4);
+			}).catch(err => {
+				error.innerText = err.message;
+			});
+		});
+	</script>
+</body>
+</html>

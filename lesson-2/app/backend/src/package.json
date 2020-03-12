@@ -1,0 +1,15 @@
+{
+  "name": "k8s-app-backend",
+  "version": "0.0.1",
+  "description": "k8s test application",
+  "main": "index.js",
+  "scripts": {
+	"start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Volodymyr Liench <lenchvov@gmail.com> (https://github.com/lenchv)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
