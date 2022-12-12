@@ -10,6 +10,6 @@
   "author": "Volodymyr Liench <lenchvov@gmail.com> (https://github.com/lenchv)",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
